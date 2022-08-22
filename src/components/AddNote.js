@@ -6,7 +6,10 @@ const AddNote = ({ handleAddNote }) => {
 
   // Mettre à jour l'état de "setNewNote" à chaque fois que l'utilisateur tape du texte
   const handleChange = (e) => {
-    setNewNote(e.target.value);
+    // Empecher d'ajouter plus de texte une fois la limite de charactère franchis
+    if (characterLimit - e.target.value.length >= 0) {
+      setNewNote(e.target.value);
+    }
   };
   // Enregistrer une nouvelle note
   const handleClick = () => {

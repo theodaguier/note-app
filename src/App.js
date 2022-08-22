@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
+import Search from './components/Search';
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -27,9 +28,20 @@ const App = () => {
     setNotes(newNotes);
   };
 
+  // Fonction pour supprimer une note
+  const deleteNote = (id) => {
+    const newNotes = notes.filter((note) => note.id !== id);
+    setNotes(newNotes);
+  };
+
   return (
     <div className="container">
-      <NotesList notes={notes} handleAddNote={addNote} />
+      <Search />
+      <NotesList
+        notes={notes}
+        handleAddNote={addNote}
+        handleDeleteNote={deleteNote}
+      />
     </div>
   );
 };

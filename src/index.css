@@ -34,6 +34,7 @@ code {
   padding: 1rem;
   margin-bottom: 10px;
   border-radius: 10px;
+  white-space: pre-wrap;
   background-color: aqua;
 }
 
@@ -71,5 +72,9 @@ textarea:focus {
 .note-footer {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: stretch; 
+}
+
+.delete-icon {
+  cursor: pointer;
 }
