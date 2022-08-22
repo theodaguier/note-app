@@ -42,3 +42,34 @@ code {
   align-items: flex-end;
   justify-content: space-between;
 }
+
+.note.new {
+  background-color: bisque;
+}
+
+textarea {
+  border: none;
+  resize: none;
+  background-color: bisque;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save-note {
+  background-color: none;
+  border: none;
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.save-note:hover {
+  cursor: pointer;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+}
