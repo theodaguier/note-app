@@ -1,11 +1,16 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs';
 
-const Search = () => {
+const Search = ({ handleSearchNote }) => {
   return (
     <div className="search-bar">
       <BsSearch className="search-icon" size="1.3em" />
-      <input type="text" placeholder="Taper pour chercher..." />
+      <input
+        onChange={(e) => 
+            handleSearchNote(e.target.value)}
+        type="text"
+        placeholder="Taper pour chercher..."
+      />
     </div>
   );
 };
