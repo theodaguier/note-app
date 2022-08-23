@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
+import Header from './components/Header';
 
 const App = () => {
   const [notes, setNotes] = useState([
@@ -17,8 +18,7 @@ const App = () => {
   // Récupérer les notes sauvegardées dans le localStorage
 
   useEffect(() => {
-    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
-
+    const savedNotes = JSON.parse(localStorage.getItem('APP_DATA_NOTE'));
     if (savedNotes) {
       setNotes(savedNotes);
     }
@@ -28,7 +28,7 @@ const App = () => {
   // La fonction sauvegarde les données après chaque note mise à jour
 
   useEffect(() => {
-    localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+    localStorage.setItem('APP_DATA_NOTE', JSON.stringify(notes));
   }, [notes]);
 
   // Entrer le texte de l'utilisateur, la fonction sera transmise à ses enfants
@@ -55,6 +55,7 @@ const App = () => {
 
   return (
     <div className="container">
+      <Header />
       <Search handleSearchNote={setSearch} />
       <NotesList
         notes={notes.filter((note) => note.text.toLowerCase().includes(search))}
