@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { nanoid } from 'nanoid';
 import NotesList from './components/NotesList';
 import Search from './components/Search';
@@ -7,12 +7,31 @@ const App = () => {
   const [notes, setNotes] = useState([
     {
       id: nanoid(),
-      text: '',
+      text: 'Bienvenue sur Notes, ecrivez dès maintenant votre première note !',
       date: '',
     },
   ]);
 
-  // Entrer le text de l'utilisateur, la fonction sera transmise à ses enfants
+  const [search, setSearch] = useState('');
+
+  // Récupérer les notes sauvegardées dans le localStorage
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'));
+
+    if (savedNotes) {
+      setNotes(savedNotes);
+    }
+  }, []);
+
+  // Sauvegarder les notes dans le localStorage
+  // La fonction sauvegarde les données après chaque note mise à jour
+
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify(notes));
+  }, [notes]);
+
+  // Entrer le texte de l'utilisateur, la fonction sera transmise à ses enfants
   // Puis implémenter une nouvelle note
 
   const addNote = (text) => {
@@ -36,9 +55,9 @@ const App = () => {
 
   return (
     <div className="container">
-      <Search />
+      <Search handleSearchNote={setSearch} />
       <NotesList
-        notes={notes}
+        notes={notes.filter((note) => note.text.toLowerCase().includes(search))}
         handleAddNote={addNote}
         handleDeleteNote={deleteNote}
       />
