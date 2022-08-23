@@ -3,8 +3,8 @@ import { GrClose } from 'react-icons/gr';
 const Note = ({ id, text, date, handleDeleteNote }) => {
   return (
     <div className="note">
-      <span>{text}</span>
       <div className="note-data">
+        <span>{text}</span>
         <span className="date">{date}</span>
         <GrClose
           onClick={() => handleDeleteNote(id)}
