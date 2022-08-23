@@ -6,10 +6,9 @@ const Search = ({ handleSearchNote }) => {
     <div className="search-bar">
       <BsSearch className="search-icon" size="1.3em" />
       <input
-        onChange={(e) => 
-            handleSearchNote(e.target.value)}
+        onChange={(e) => handleSearchNote(e.target.value)}
         type="text"
-        placeholder="Taper pour chercher..."
+        placeholder="Taper pour chercher une note..."
       />
     </div>
   );
