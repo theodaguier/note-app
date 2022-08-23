@@ -35,7 +35,8 @@ code {
   margin-bottom: 10px;
   border-radius: 10px;
   white-space: pre-wrap;
-  background-color: aqua;
+  background-color: cornflowerblue;
+  cursor: pointer;
 }
 
 .note-data {
@@ -45,13 +46,14 @@ code {
 }
 
 .note.new {
-  background-color: bisque;
+  background-color: white;
+  border: solid 1px;
 }
 
 textarea {
   border: none;
   resize: none;
-  background-color: bisque;
+  background-color: white;
 }
 
 textarea:focus {
@@ -82,7 +84,7 @@ textarea:focus {
 .search-bar {
   display: flex;
   align-items: center;
-  background-color: bisque;
+  border: solid 1px;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 1.5em;
@@ -91,7 +93,6 @@ textarea:focus {
 .search-bar input {
   width: 100%;
   border: none;
-  background-color: bisque;
 }
 
 .search-bar input:focus {
